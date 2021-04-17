@@ -14,6 +14,7 @@ object NBD_02 {
       println("\nZadanie 2")
 
       val konto1 = new KontoBankowe(20)
+      println("Stan konta 1: "  + konto1.stanKonta)
       konto1.wyplata(50)
       konto1.wplata(200)
       konto1.wplata(50)
@@ -45,49 +46,36 @@ object NBD_02 {
 
 
       println("\nZadanie 5")
-      val osobaPracownik = new
-          OsobaZad5("Kamil", "Michalski") with Pracownik {
-         var pensja: Double = 1000
-      }
+      // nie wstrzykiwac atrybutow w nawiasach klamrowych traita - raczej uzyc settera do inicjalizacji atrybutow
+
+      val osobaPracownik = new OsobaZad5("Kamil", "Michalski") with Pracownik
+      osobaPracownik.pensja = 1000
 
       println("Pensja pracownika: " + osobaPracownik.pensja)
       println("Podatek pracownika: " + osobaPracownik.podatek)
 
 
-      val osobaNauczyciel = new
-          OsobaZad5("Joanna", "Kruk") with Nauczyciel {
-        var pensja: Double = 1000
-      }
+      val osobaNauczyciel = new OsobaZad5("Joanna", "Kruk") with Nauczyciel
+      osobaNauczyciel.pensja = 1000
 
       println("\nPensja nauczyciela: " + osobaNauczyciel.pensja)
       println("Podatek nauczyciela: " + osobaNauczyciel.podatek)
 
 
-      val osobaStudent = new
-          OsobaZad5("Lukasz", "Huk") with Student {
-        var pensja: Double = 1000
-      }
+      val osobaStudent = new OsobaZad5("Lukasz", "Huk") with Student
 
-      println("\nPensja studenta: " + osobaStudent.pensja)
-      println("Podatek studenta: " + osobaStudent.podatek)
+      println("\nPodatek studenta: " + osobaStudent.podatek)
 
 
-      val osobaStudentPracownik= new
-          OsobaZad5("Lukasz", "Buk") with Student with Pracownik {
-        var pensja: Double = 1000
-        override def podatek: Double = super.podatek
-      }
+      val osobaStudentPracownik = new OsobaZad5("Lukasz", "Buk") with Student with Pracownik
+      osobaStudentPracownik.pensja = 1000
 
       println("\nPensja studenta pracownika: " + osobaStudentPracownik.pensja)
       println("Podatek studenta pracownika: " + osobaStudentPracownik.podatek)
 
 
-
-      val osobaPracownikStudent= new
-          OsobaZad5("Lukasz", "Mruk") with Pracownik with Student  {
-        var pensja: Double = 1000
-        override def podatek: Double = super.podatek
-      }
+      val osobaPracownikStudent= new OsobaZad5("Lukasz", "Mruk") with Pracownik with Student
+      osobaPracownikStudent.pensja = 1000
 
       println("\nPensja pracownika studenta: " + osobaPracownikStudent.pensja)
       println("Podatek pracownika studenta: " + osobaPracownikStudent.podatek)
